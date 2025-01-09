@@ -16,7 +16,7 @@ void	*calloc(size_t nmemb, size_t size)
 {
 	void	*array;
 
-	if (nmemb && size && (4294967295U / size  <= nmemb))
+	if (nmemb && size && (4294967295U / size <= nmemb))
 		return (0);
 	array = malloc(sizeof(nmemb * size));
 	if (!array)

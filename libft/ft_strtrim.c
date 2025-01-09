@@ -26,12 +26,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	copy = (char *)malloc(sizeof(char) * (s1len + 1));
 	if (!copy)
 		return (NULL);
-	while (ft_strchr(s1[i],set) && i < (int)s1len)
+	while (ft_strchr(s1[i], set) && i < (int)s1len)
 		i++;
 	j = i;
 	while (s1[i])
 		i++;
-	while (ft_strchr(s1[i],set))
+	while (ft_strchr(s1[i], set))
 		i--;
 	while (j <= i)
 		copy[k++] = s1[j++];

@@ -34,7 +34,7 @@ static char	*update_stash(char *stash)
 	while (stash[j])
 		j++;
 	new_stash = malloc(sizeof(char) * (j - i) + 1);
-	if (((j - i) == 0 && !ft_strchr('\n',stash)) || !new_stash)
+	if (((j - i) == 0 && !ft_strchr('\n', stash)) || !new_stash)
 	{
 		free(new_stash);
 		return (NULL);
@@ -103,7 +103,7 @@ static char	*join_and_free(char *stash, char *buf)
 	char	*temp;
 
 	temp = stash;
-	stash = ft_strjoin(stash, buf);
+	stash = ft_strjoin_gnl(stash, buf);
 	free(temp);
 	return (stash);
 }
@@ -137,7 +137,7 @@ char	*get_next_line(int fd)
 	{
 		line[bytes_read] = '\0';
 		stash[fd] = join_and_free(stash[fd], line);
-		if (ft_strchr('\n',line))
+		if (ft_strchr('\n', line))
 			break ;
 		bytes_read = read(fd, line, BUFFER_SIZE);
 	}
