@@ -123,6 +123,15 @@ int					get_precision(const char *format);
 void				get_conversion(const char *format, t_format *new_s);
 
 /*-------------------------------------------------------/
+/                      GNL                               /               
+/-------------------------------------------------------*/
+
+char				*get_next_line(int fd);
+char				*safe_malloc(void);
+char				*ft_strdup_gnl(const char *str);
+char				*ft_strjoin_gnl(char const *s1, char const *s2);
+
+/*-------------------------------------------------------/
 /                      LIBFT                             /               
 /-------------------------------------------------------*/
 
@@ -132,10 +141,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-char				*get_next_line(int fd);
-char				*safe_malloc(void);
-char				*ft_strdup_gnl(const char *str);
-char				*ft_strjoin_gnl(char const *s1, char const *s2);
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
