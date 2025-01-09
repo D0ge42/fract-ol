@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
 /*Struct to string takes a va_list, the current structure and count
 Here the current struct is passed to its respect conversion handler

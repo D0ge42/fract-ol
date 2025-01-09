@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
 void	ft_putstr_count(void *str2, int *count, t_format *new, int len)
 {

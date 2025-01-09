@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
 void	u_left_padding(t_format *new, unsigned int num, int *count, int spaces)
 {

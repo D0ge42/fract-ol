@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
 void	ft_printnb_count(long long int nb, int *count, t_format *new)
 {

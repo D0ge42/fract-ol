@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
 void	ft_putstr(char *str)
 {
@@ -24,7 +24,7 @@ void	ft_putchar_count(char c, int *count)
 	*count += 1;
 }
 
-int	ft_strchr(char c, const char *str)
+int	ft_strchr(int c, const char *str)
 {
 	while (*str)
 	{
@@ -33,14 +33,4 @@ int	ft_strchr(char c, const char *str)
 		str++;
 	}
 	return (0);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }

@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*calloc(size_t nmemb, size_t size)
 {
 	void	*array;
 
-	if (nmemb && size && (nmemb * size >= 4294967295U))
+	if (nmemb && size && (4294967295U / size  <= nmemb))
 		return (0);
 	array = malloc(sizeof(nmemb * size));
 	if (!array)

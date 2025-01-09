@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
 void	zero_writer(int zeros, int *count)
 {
@@ -47,29 +47,6 @@ void	free_structs(t_format **struct_array, const char *format)
 		i++;
 	}
 	free(struct_array);
-}
-
-int	ft_atoi(const char *str)
-{
-	int	n;
-	int	s;
-
-	n = 0;
-	s = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			s *= -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		n = (n * 10) + (*str - '0');
-		str++;
-	}
-	return (n * s);
 }
 
 void	initialize_struct(t_format *new_s)

@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "libft.h"
 
 /*Function to update stash to the next new line.
 It also handle the case where the end of file is reached.
 Paramaters: Takes stash and make a new one out of it.
 Return value: New stash. */
 
-char	*update_stash(char *stash)
+static char	*update_stash(char *stash)
 {
 	int		i;
 	char	*new_stash;
@@ -34,7 +34,7 @@ char	*update_stash(char *stash)
 	while (stash[j])
 		j++;
 	new_stash = malloc(sizeof(char) * (j - i) + 1);
-	if (((j - i) == 0 && !ft_strchr(stash, '\n')) || !new_stash)
+	if (((j - i) == 0 && !ft_strchr('\n',stash)) || !new_stash)
 	{
 		free(new_stash);
 		return (NULL);
@@ -50,7 +50,7 @@ char	*update_stash(char *stash)
 Takes a string as parameter. Return the start of the next line we've to print.
 Done by adding +1 to the index where we find the new line.*/
 
-int	linelen(char *str)
+static int	linelen(char *str)
 {
 	int	i;
 
@@ -66,7 +66,7 @@ Parameters: String stash, from where we'll extract the line to print.
 Old line, which is the old line we've to free.(The buffer where we've used read.
 Return values: Line we've to print.*/
 
-char	*extract_line(char *stash, char *old_line)
+static char	*extract_line(char *stash, char *old_line)
 {
 	int		i;
 	int		linelenght;
@@ -98,7 +98,7 @@ char	*extract_line(char *stash, char *old_line)
 Parameters: Old stash, and the buffer to join with the string.
 Return values: New stash.*/
 
-char	*join_and_free(char *stash, char *buf)
+static char	*join_and_free(char *stash, char *buf)
 {
 	char	*temp;
 
@@ -137,7 +137,7 @@ char	*get_next_line(int fd)
 	{
 		line[bytes_read] = '\0';
 		stash[fd] = join_and_free(stash[fd], line);
-		if (ft_strchr(line, '\n'))
+		if (ft_strchr('\n',line))
 			break ;
 		bytes_read = read(fd, line, BUFFER_SIZE);
 	}
