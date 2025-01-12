@@ -2,17 +2,19 @@
 #define FRACTOL_H
 
 
-#define MAX_ITERATIONS 20
+#define MAX_ITERATIONS 1000
 #define WHEEL_UP 4
 #define WHEEL_DOWN 5
-#define WIDTH 1920
-#define HEIGHT 1080
+#define WIDTH 400
+#define HEIGHT 400
 typedef struct s_mlx_data
 {
     //Window pointer, mlx pointer and zoom.
     void *mlx_ptr;
     void *win_ptr;
     double zoom;
+    double offset_x;
+    double offset_y;
 
     double min_re;
     double max_re;
