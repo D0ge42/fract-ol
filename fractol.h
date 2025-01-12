@@ -2,34 +2,44 @@
 #define FRACTOL_H
 
 
-#define MAX_ITERATIONS 42
-
+#define MAX_ITERATIONS 20
+#define WHEEL_UP 4
+#define WHEEL_DOWN 5
+#define WIDTH 1920
+#define HEIGHT 1080
 typedef struct s_mlx_data
 {
+    //Window pointer, mlx pointer and zoom.
     void *mlx_ptr;
     void *win_ptr;
-}   t_mlx_data;
+    double zoom;
 
-typedef struct s_img_data
-{
+    double min_re;
+    double max_re;
+    double max_im;
+    double min_im;
+
+    //Image variables.
     void *img;
-    char *addr;
+    char *img_addr;
     int bits_per_pixel;
     int line_lenght;
     int endian;
-}   t_img_data;
 
-typedef struct c_complex
-{
+    //Complex number x and y.
     double cx;
     double cy;
-}   t_complex;
 
-typedef struct s_fractal
-{
+    //Complex number z.
     double zx;
     double zy;
     double z;
-}   t_fractal;
+}   f_data;
+
+
+void my_mlx_pixel_put(f_data *data, int x, int y, int color);
+void cycle_and_apply(f_data *data);
+int is_diverge(f_data *data, int x, int y);
+double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 
 #endif

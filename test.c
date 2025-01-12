@@ -3,7 +3,7 @@
 #include "fractol.h"
 #include <X11/keysym.h>
 
-int handle_input(int keycode, t_mlx_data *data)
+int handle_input(int keycode, f_data *data)
 {
     if (keycode == XK_Escape)
     {
@@ -16,39 +16,48 @@ int handle_input(int keycode, t_mlx_data *data)
     return 0;
 }
 
-void my_mlx_pixel_put(t_img_data *img, int x, int y, int color)
+int zoom_in_and_out(int keycode, int x, int y, f_data *data)
+{
+    if(keycode == WHEEL_UP)
+        data->zoom *=1.1312312321;
+    else if (keycode == WHEEL_DOWN)
+        data->zoom /= 1.1312312321;
+    cycle_and_apply(data);
+    return 0;
+}
+
+
+void my_mlx_pixel_put(f_data *img, int x, int y,  int color)
 {
     char *dst;
-    dst = img->addr + (y * img->line_lenght + x * (img->bits_per_pixel / 8));
+    dst = img->img_addr + (y * img->line_lenght + x * (img->bits_per_pixel / 8));
     *(unsigned int *)dst = color;
 }
 
 int main() 
 {
-    t_mlx_data data;
-    t_img_data img;
-
+    f_data data;
+    data.zoom = 1.0;
     // Initialize the connection to the X server
     data.mlx_ptr = mlx_init();
     if(!data.mlx_ptr)
         return 1;
 
     // Create window
-    data.win_ptr = mlx_new_window(data.mlx_ptr,1280,720,"FRACTOL");
+    data.win_ptr = mlx_new_window(data.mlx_ptr,WIDTH,HEIGHT,"FRACTOL");
 
     //Img creation
-    img.img = mlx_new_image(data.mlx_ptr,1280,720);
+    data.img = mlx_new_image(data.mlx_ptr,WIDTH,HEIGHT);
 
-    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
+    data.img_addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_lenght, &data.endian);
 
-    my_mlx_pixel_put(&img,30,30,0x00FFFF00);
-    
-    mlx_put_image_to_window(data.mlx_ptr,data.win_ptr,img.img,0,0);
 
-    // Handle clean exit.
+    mlx_mouse_hook(data.win_ptr,zoom_in_and_out,&data);
+
+    //Clean exit
     mlx_key_hook(data.win_ptr,handle_input,&data);
-
-
+    
+    mlx_put_image_to_window(data.mlx_ptr,data.win_ptr,data.img,0,0);
 
     // To keep the window alive we've t use mix_loop.
     mlx_loop(data.mlx_ptr);
