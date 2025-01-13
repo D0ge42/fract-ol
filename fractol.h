@@ -2,11 +2,15 @@
 #define FRACTOL_H
 
 
-#define MAX_ITERATIONS 1000
+#define MAX_ITERATIONS 2000
 #define WHEEL_UP 4
 #define WHEEL_DOWN 5
 #define WIDTH 400
 #define HEIGHT 400
+#define MANDELBROT 1
+#define JULIA 2
+#define BURNINGSHIPS 3
+
 typedef struct s_mlx_data
 {
     //Window pointer, mlx pointer and zoom.
@@ -16,10 +20,10 @@ typedef struct s_mlx_data
     double offset_x;
     double offset_y;
 
-    double min_re;
-    double max_re;
-    double max_im;
-    double min_im;
+    //Fractal type
+    int fractal_type;
+    unsigned int inf_color;
+    unsigned int fin_color;
 
     //Image variables.
     void *img;
@@ -35,13 +39,12 @@ typedef struct s_mlx_data
     //Complex number z.
     double zx;
     double zy;
-    double z;
 }   f_data;
 
 
-void my_mlx_pixel_put(f_data *data, int x, int y, int color);
-void cycle_and_apply(f_data *data);
-int is_diverge(f_data *data, int x, int y);
+void my_mlx_pixel_put(f_data *data, int x, int y, unsigned int color);
+void cycle_and_apply(f_data *data,int fractal_type);
+int apply_mandelbrot(f_data *data, int x, int y);
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 
 #endif

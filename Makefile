@@ -7,7 +7,7 @@ LIBFT_OBJS = $(LIBFT_SRC:.c=.o)
 OBJS = $(filter-out libft/%.o, $(SRC:.c=.o)) # Esclude i file oggetto di libft
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -gdwarf-4
 MLX_FLAGS = -Imlx -Lmlx -lmlx -lX11 -lXext -lm
 RM = rm -rf
 AR = ar crs
