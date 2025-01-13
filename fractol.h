@@ -2,7 +2,7 @@
 #define FRACTOL_H
 
 
-#define MAX_ITERATIONS 2000
+#define MAX_ITERATIONS 600
 #define WHEEL_UP 4
 #define WHEEL_DOWN 5
 #define WIDTH 400
@@ -45,6 +45,7 @@ typedef struct s_mlx_data
 void my_mlx_pixel_put(f_data *data, int x, int y, unsigned int color);
 void cycle_and_apply(f_data *data,int fractal_type);
 int apply_mandelbrot(f_data *data, int x, int y);
+int apply_julia(f_data *data, int x, int y);
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 
 #endif

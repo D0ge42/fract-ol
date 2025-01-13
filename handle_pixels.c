@@ -1,7 +1,7 @@
 #include "fractol.h"
 #include <X11/keysym.h>
 #include <limits.h>
-
+#include <float.h>
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
 {
     return (new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min;
@@ -42,6 +42,27 @@ int apply_mandelbrot(f_data *data, int x, int y)
     return 0;
 }
 
+int apply_julia(f_data *data, int x, int y)
+{
+    int i = 0;
+    double tmp;
+
+    data->zx = x / data-> zoom + data->offset_x;
+    data->zx = x / data-> zoom + data->offset_x;
+    data->cx = (x - WIDTH / 2.0)  /  data->zoom + data->offset_x;
+    data->cy = (y - HEIGHT / 2.0) / data->zoom + data->offset_y;
+    while(i <= MAX_ITERATIONS)
+    {
+        tmp = data->zx;
+        data->zx = data->zx * data->zx - data->zy * data->zy + data->cx;
+        data->zy = 2 * data->zy * tmp + data->cy;
+        if(data->zx * data->zx + data->zy + data->zy >= 4)
+            return i;
+        i++;
+    }
+    return 0;
+}
+
 void cycle_and_apply(f_data *data,int fractal_type)
 {
     int x = 0;
@@ -52,7 +73,9 @@ void cycle_and_apply(f_data *data,int fractal_type)
         while(x < WIDTH)
         {
             if (fractal_type == MANDELBROT)
-                depth = apply_mandelbrot(data,x,y);   
+                depth = apply_mandelbrot(data,x,y);
+            else if (fractal_type == JULIA)
+                depth = apply_julia(data,x,y);
             if(depth)
                 my_mlx_pixel_put(data,x,y,depth * data->inf_color); //Infinite values
             else

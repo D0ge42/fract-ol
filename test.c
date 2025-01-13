@@ -80,6 +80,8 @@ void	draw_fractal(f_data *data, int fractal_type)
 {
 	if (fractal_type == MANDELBROT)
 		cycle_and_apply(data, MANDELBROT);
+	if (fractal_type == JULIA)
+		cycle_and_apply(data,JULIA);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
 }
 
