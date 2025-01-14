@@ -2,7 +2,7 @@
 #define FRACTOL_H
 
 
-#define MAX_ITERATIONS 10000
+#define MAX_ITERATIONS 1000
 #define WHEEL_UP 4
 #define WHEEL_DOWN 5
 #define WIDTH 1920

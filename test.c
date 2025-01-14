@@ -17,6 +17,7 @@ int	destroy_event(f_data *data)
 
 void	clean_init(f_data *data)
 {
+	data->zoom = 150.0;
 	if(data->fractal_type == BURNINGSHIPS)
 		data->zoom = 50.0;
 	data->offset_x = 0.0;
