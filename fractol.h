@@ -47,5 +47,7 @@ void cycle_and_apply(f_data *data,int fractal_type);
 int apply_mandelbrot(f_data *data, int x, int y);
 int apply_julia(f_data *data, int x, int y);
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
+double ft_atof(const char *str);
+int get_gradient_color(double t, unsigned int start_color, unsigned int end_color);
 
 #endif
