@@ -2,11 +2,11 @@
 #define FRACTOL_H
 
 
-#define MAX_ITERATIONS 600
+#define MAX_ITERATIONS 10000
 #define WHEEL_UP 4
 #define WHEEL_DOWN 5
-#define WIDTH 400
-#define HEIGHT 400
+#define WIDTH 1920
+#define HEIGHT 1080
 #define MANDELBROT 1
 #define JULIA 2
 #define BURNINGSHIPS 3

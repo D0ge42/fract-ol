@@ -17,7 +17,6 @@ int	destroy_event(f_data *data)
 
 void	clean_init(f_data *data)
 {
-	data->zoom = 150.0;
 	if(data->fractal_type == BURNINGSHIPS)
 		data->zoom = 50.0;
 	data->offset_x = 0.0;
@@ -87,22 +86,23 @@ void	cycle_colors(f_data *data)
 		i = 0;
 	i += 1;
 	unsigned int fin_colors[] = {
-		0x00291F1F, // Dark charcoal
-		0x00614BC4, // Deep purple
-		0x003498DB, // Bright blue
-		0x002980B9, // Ocean blue
-		0x0016A085, // Teal
-		0x001ABC9C, // Turquoise
-		0x002ECC71, // Emerald
-		0x0027AE60, // Forest green
-		0x00F1C40F, // Sunflower yellow
-		0x00E67E22, // Carrot orange
-		0x00D35400, // Pumpkin
-		0x00C0392B, // Pomegranate
-		0x009B59B6, // Amethyst
-		0x008E44AD, // Wisteria
-		0x002C3E50  // Midnight blue
-	};
+    0xFFFFFF00, // Bright yellow (replaces dark charcoal)
+    0xFF00FF00, // Neon green (replaces deep purple)
+    0x00FFFF00, // Bright yellow (replaces bright blue)
+    0x00FFCCFF, // Bright cyan (replaces ocean blue)
+    0x00FF6600, // Bright orange (replaces teal)
+    0x00FF3399, // Hot pink (replaces turquoise)
+    0x00FF3333, // Bright red (replaces emerald)
+    0xFFFF0033, // Vivid pink (replaces forest green)
+    0xFFFF00FF, // Bright magenta (replaces sunflower yellow)
+    0xFF6600FF, // Electric purple (replaces carrot orange)
+    0xFF0033CC, // Neon blue (replaces pumpkin)
+    0xFFFF0000, // Bright red (replaces pomegranate)
+    0xFF3399FF, // Vivid blue (replaces amethyst)
+    0xFF6600FF, // Neon violet (replaces wisteria)
+    0x00000000  // Pure black (replaces midnight blue)
+};
+
 	// Colors for interior points (infinite iterations)
 	unsigned int inf_colors[] = {
 		0x00000000, // Pure black
