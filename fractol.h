@@ -5,11 +5,15 @@
 #define MAX_ITERATIONS 1000
 #define WHEEL_UP 4
 #define WHEEL_DOWN 5
-#define WIDTH 1920
-#define HEIGHT 1080
+#define WIDTH 400
+#define HEIGHT 400
 #define MANDELBROT 1
 #define JULIA 2
 #define BURNINGSHIPS 3
+#define KEY_UP     65362
+#define KEY_DOWN   65364
+#define KEY_LEFT   65361
+#define KEY_RIGHT  65363
 
 typedef struct s_mlx_data
 {
@@ -48,6 +52,7 @@ int apply_mandelbrot(f_data *data, int x, int y);
 int apply_julia(f_data *data, int x, int y);
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 double ft_atof(const char *str);
+void help_menu(void);
 int get_gradient_color(double t, unsigned int start_color, unsigned int end_color);
 
 #endif

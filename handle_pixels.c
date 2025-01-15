@@ -1,4 +1,5 @@
 #include "fractol.h"
+#include "/nfs/homes/lonulli/Fractol/libft/libft.h"
 #include <X11/keysym.h>
 #include <float.h>
 #include <limits.h>
@@ -126,7 +127,7 @@ void	cycle_and_apply(f_data *data, int fractal_type)
 	x = 0;
 	y = 0;
 	depth = 0;
-	double t; // Variable for smooth gradient transition
+	double t;
 	while (y < HEIGHT)
 	{
 		while (x < WIDTH)
