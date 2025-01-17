@@ -25,7 +25,7 @@
 # include <stdint.h>
 
 /*-------------------------------------------------------/
-/                      PRINTF                            /               
+/                      PRINTF                            /
 /-------------------------------------------------------*/
 /*Main structure. Handles everything as if each variable is a light switch.
 Depending on if it's turned on or off a different output will be produced*/
@@ -123,7 +123,7 @@ int					get_precision(const char *format);
 void				get_conversion(const char *format, t_format *new_s);
 
 /*-------------------------------------------------------/
-/                      GNL                               /               
+/                      GNL                               /
 /-------------------------------------------------------*/
 
 char				*get_next_line(int fd);
@@ -132,7 +132,7 @@ char				*ft_strdup_gnl(const char *str);
 char				*ft_strjoin_gnl(char const *s1, char const *s2);
 
 /*-------------------------------------------------------/
-/                      LIBFT                             /               
+/                      LIBFT                             /
 /-------------------------------------------------------*/
 
 typedef struct s_list
