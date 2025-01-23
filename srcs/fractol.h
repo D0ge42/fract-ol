@@ -13,8 +13,8 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "/nfs/homes/lonulli/Fractol/libft/libft.h"
-# include "/nfs/homes/lonulli/Fractol/mlx/mlx.h"
+# include "../libft/libft.h"
+# include "../mlx/mlx.h"
 # include <X11/keysym.h>
 # include <limits.h>
 # include <math.h>
