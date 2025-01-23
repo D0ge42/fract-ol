@@ -15,9 +15,7 @@ Fract-ol is a graphical project developed as part of the 42 school curriculum. T
 - [Usage](#usage)
 - [Controls](#controls)
 - [Fractals Supported](#fractals-supported)
-- [Bonus Features](#bonus-features)
 - [Resources](#resources)
-- [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -32,7 +30,6 @@ Fract-ol explores the world of fractals, which are intricate geometric shapes th
 - Smooth color gradients for fractal visualization.
 - Zoom and pan functionality to explore fractals in detail.
 - Real-time updates for Julia set parameters based on mouse movement.
-- Highly optimized rendering with the MinilibX library.
 
 ---
 
@@ -42,7 +39,7 @@ To build and run the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/D0ge42/fractol.git
+   git clone git@github.com:D0ge42/fract-ol.git
    cd fractol
    ```
 
@@ -101,9 +98,8 @@ To build and run the project, follow these steps:
 2. **Julia Set:**
    A fractal closely related to the Mandelbrot set, where the parameter `c` is fixed, and the initial value of `z` varies.
 
-3. **Bonus Fractals:**
-   Additional fractals can be implemented as bonus features, such as:
-   - Burning Ship
+3. **Burning Ship:**
+   Closely related to the Mandelbrot set, but the imaginary part of z is taken as its absolute value.
 ---
 
 ## Resources
